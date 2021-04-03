@@ -60,6 +60,9 @@ endif
 " 2 spaces per tab (https://vim.fandom.com/wiki/Converting_tabs_to_spaces)
 :set expandtab tabstop=2 shiftwidth=2
 
+" Set right margin to 81
+:set colorcolumn=81
+
 " Spell checking
 :function! ToggleSpell()
 :  if &spell ==# "nospell"
