@@ -75,3 +75,24 @@ endif
 
 " jj as escape from insert mode
 :imap jj <Esc>
+
+" Set whitespace visible
+:set listchars=eol:¬,tab:>·,trail:~,extends:>,precedes:<,space:␣
+:function! ToggleVisibleWhitespace()
+:  if &list ==# "nolist"
+:    set list
+:  else
+:    set nolist
+:  endif
+:endfunction
+:map <F2> :call ToggleVisibleWhitespace()<CR>
+
+" vim-plug
+" Make sure to reload the vimrc and run the :PlugInstall command after adding
+" a new Plugin. :PlugUpdate can be used to update all installed plugins.
+call plug#begin('~/.vim/plugged')
+
+Plug 'lervag/vimtex'
+
+call plug#end()
+
