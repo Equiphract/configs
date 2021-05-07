@@ -74,7 +74,8 @@ endif
 :map <F1> :call ToggleSpell()<CR>
 
 " jj as escape from insert mode
-:imap jj <Esc>
+" :imap jj <Esc>
+" Use alt+h,j,k or l instead
 
 " Set whitespace visible
 :set listchars=eol:¬,tab:>·,trail:~,extends:>,precedes:<,space:␣
