@@ -63,6 +63,9 @@ endif
 " Set right margin to 81
 :set colorcolumn=81
 
+" Set max text width to 80 characters
+:se tw=80
+
 " Spell checking
 :function! ToggleSpell()
 :  if &spell ==# "nospell"
