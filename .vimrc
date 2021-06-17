@@ -54,8 +54,9 @@ if filereadable("/etc/vim/vimrc.local")
 endif
 
 " My tweaks
-" Set line number
+" Set line number (absolute for cursor line, relative for others)
 :set number
+:set relativenumber
 
 " 2 spaces per tab (https://vim.fandom.com/wiki/Converting_tabs_to_spaces)
 :set expandtab tabstop=2 shiftwidth=2
