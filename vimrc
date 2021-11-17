@@ -17,6 +17,7 @@ endif
 filetype plugin indent on
 
 set background=dark " For better contrast on dark background
+set encoding=utf-8  " Set encoding always to UTF-8
 set showcmd         " Show (partial) command in status line.
 set ignorecase      " Do case insensitive matching
 set smartcase       " Do smart case matching, works together with ignorecase
