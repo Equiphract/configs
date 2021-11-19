@@ -1,12 +1,7 @@
-" All system-wide defaults are set in $VIMRUNTIME/archlinux.vim and sourced by
-" the call to :runtime you can find below.  If you wish to change any of those
-" settings, you should do it in this file (/etc/vim/vimrc), since archlinux.vim
-" will be overwritten everytime an upgrade of the vim packages is performed.
-" It is recommended to make changes after sourcing archlinux.vim since it alters
-" the value of the 'compatible' option.
-runtime! archlinux.vim
+if &compatible
+  set nocompatible " Vi compatibility not needed
+endif
 
-" Vim5 and later versions support syntax highlighting. Uncommenting the next
 " line enables syntax highlighting by default.
 if has("syntax")
   syntax on
@@ -36,6 +31,8 @@ set textwidth=80    " Set max text width to 80 charcters
 set nowrap          " Don't wrap text when the line gets too long to display
 set colorcolumn=+1  " Draw print margin at textwidth + 1
 set scrolloff=4     " Start scrolling when 4 lines away from window border
+set ruler           " Display line number, column number etc.
+set backspace=indent,eol,start " Backspace over everything
 
 highlight ColorColumn ctermbg=lightgrey guibg=lightgrey " Set print margin color
 
