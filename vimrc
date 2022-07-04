@@ -1,57 +1,65 @@
-if &compatible
+" ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+" General options
+" ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+if &compatible 
   set nocompatible " Vi compatibility not needed
 endif
 
-" line enables syntax highlighting by default.
 if has("syntax")
   syntax on
 endif
 
-" Uncomment the following to have Vim load indentation rules and plugins
-" according to the detected filetype.
 filetype plugin indent on
 
-set background=dark " For better contrast on dark background
-set encoding=utf-8  " Set encoding always to UTF-8
-set showcmd         " Show (partial) command in status line.
-set ignorecase      " Do case insensitive matching
-set smartcase       " Do smart case matching, works together with ignorecase
-set incsearch       " Incremental search
-set autowrite       " Automatically save before commands like :next and :make
-set hidden          " Hide buffers when they are abandoned
-set mouse=a         " Enable mouse usage (all modes)
-set number          " Show current line number
-set relativenumber  " Show relative line numbers
-set expandtab       " Use spaces as tab
-set tabstop=2       " Spaces per tab
-set shiftwidth=0    " Use value in tabstop for amount of spaces to indent
-set softtabstop=-1  " Treat spaces as if they were tabs, use shiftwidth value
-set autoindent      " Keeps indentation of previous line
-set textwidth=80    " Set max text width to 80 charcters
-set nowrap          " Don't wrap text when the line gets too long to display
-set colorcolumn=+1  " Draw print margin at textwidth + 1
-set scrolloff=4     " Start scrolling when 4 lines away from window border
-set ruler           " Display line number, column number etc.
-set backspace=indent,eol,start " Backspace over everything
+set background=dark
+set encoding=utf-8
+set showcmd
+set ignorecase
+set smartcase
+set incsearch
+set autowrite
+set hidden
+set mouse=a
+set number
+set relativenumber
+set expandtab
+set tabstop=2
+set shiftwidth=0
+set softtabstop=-1
+set autoindent
+set textwidth=80
+set nowrap
+set colorcolumn=+1
+set scrolloff=4
+set ruler
+set backspace=indent,eol,start
+set nojoinspaces
+set listchars=tab:>·,trail:~,extends:>,precedes:<
+set list
 
-highlight ColorColumn ctermbg=lightgrey guibg=lightgrey " Set print margin color
+" ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+" Key mappings
+" ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 " Spell checking
 function! ToggleSpell()
   if &spell ==# "nospell"
     set spell spelllang=de_ch
+  elseif &spell && &spelllang ==# "de_ch"
+    set spelllang=en_gb
   else
     set nospell
   endif
 endfunction
 map <F1> :call ToggleSpell()<CR>
 
-" Show whitespaces
-set listchars=tab:>·,trail:~,extends:>,precedes:<
-map <F2> :set list!<CR>
-
 " Run with Python
-map <F3> :w !python<CR>
+map <F2> :w !python<CR>
+
+" ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+" Autocommands
+" ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 " When editing a file, always jump to the last known cursor position.
 " Don't do it when the position is invalid, when inside an event handler
@@ -62,7 +70,10 @@ autocmd BufReadPost *
   \ |   exe "normal! g`\""
   \ | endif
 
-" vim-plug
+" ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+" Vim-Plug
+" ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
 " Make sure to reload the vimrc and run the :PlugInstall command after adding
 " a new Plugin. :PlugUpdate can be used to update all installed plugins.
 call plug#begin('~/.vim/plugged')
