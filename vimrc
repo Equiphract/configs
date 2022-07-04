@@ -46,15 +46,12 @@ function! ToggleSpell()
 endfunction
 map <F1> :call ToggleSpell()<CR>
 
-set listchars=eol:¬,tab:>·,trail:~,extends:>,precedes:<,space:␣
-function! ToggleVisibleWhitespace()
-  if &list ==# "nolist"
-    set list
-  else
-    set nolist
-  endif
-endfunction
-map <F2> :call ToggleVisibleWhitespace()<CR>
+" Show whitespaces
+set listchars=tab:>·,trail:~,extends:>,precedes:<
+map <F2> :set list!<CR>
+
+" Run with Python
+map <F3> :w !python<CR>
 
 " When editing a file, always jump to the last known cursor position.
 " Don't do it when the position is invalid, when inside an event handler
