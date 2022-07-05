@@ -37,6 +37,7 @@ set backspace=indent,eol,start
 set nojoinspaces
 set listchars=tab:>·,trail:~,extends:>,precedes:<
 set list
+set belloff=all
 
 " ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 " Key mappings
