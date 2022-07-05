@@ -76,9 +76,11 @@ autocmd BufReadPost *
 
 " Make sure to reload the vimrc and run the :PlugInstall command after adding
 " a new Plugin. :PlugUpdate can be used to update all installed plugins.
-call plug#begin('~/.vim/plugged')
+if ! empty(globpath(&rtp, 'autoload/plug.vim'))
+  call plug#begin('~/.vim/plugged')
 
-Plug 'lervag/vimtex'
+  Plug 'lervag/vimtex'
 
-call plug#end()
+  call plug#end()
+endif
 
