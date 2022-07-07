@@ -2,7 +2,7 @@
 " General options
 " ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-if &compatible 
+if &compatible
   set nocompatible " Vi compatibility not needed
 endif
 
@@ -80,8 +80,15 @@ autocmd BufReadPost *
 if ! empty(globpath(&rtp, 'autoload/plug.vim'))
   call plug#begin('~/.vim/plugged')
 
-  Plug 'lervag/vimtex'
+  Plug 'neoclide/coc.nvim', {'branch': 'release'}
+  " needs fzf and optionally bat for colored previews
+  Plug 'junegunn/fzf.vim'
 
   call plug#end()
 endif
+
+" ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+" Conqueror of Completion
+" ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+let g:coc_global_extensions = ['coc-java']
 
