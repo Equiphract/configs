@@ -43,6 +43,8 @@ set belloff=all
 " Key mappings
 " ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
+let mapleader = ' '
+
 " Spell checking
 function! ToggleSpell()
   if &spell ==# "nospell"
@@ -90,5 +92,11 @@ endif
 " ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 " Conqueror of Completion
 " ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-let g:coc_global_extensions = ['coc-java']
+let g:coc_global_extensions = ['coc-java', 'coc-markdownlint']
+noremap gd <Plug>(coc-definition)
 
+
+" ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+" FZF
+" ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+noremap <Leader>f :Files<CR>
