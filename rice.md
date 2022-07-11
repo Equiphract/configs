@@ -150,6 +150,12 @@ PS1='[\u@\h \W$(__git_ps1 " (%s)")]\$ '
 
 ## 4. Visual refinement
 
+The overall theme of the system should match the vim theme "gruvbox-material" by
+sainnhe: <https://github.com/sainnhe/gruvbox-material>
+
+Normal background color: #1C1C1C
+Normal foreground color: #DFDFAF
+
 ### Fonts
 
 Download Fira code as a coding font:
@@ -182,4 +188,13 @@ Install the following patch to draw a dwm logo on the lock screen:
 
 Install the following patch so that st can be resized in single pixel steps:
 <https://st.suckless.org/patches/anysize/>
+
+Install the following patch to apply the gruvbox-material theme to st:
+<https://st.suckless.org/patches/gruvbox-material/>
+
+Careful: the patch is outdated and the changes need to be made manually by
+copying them from the `.diff` file. Some variable in the patch are still static
+but not in the upstream source of st, so remove that keyword where necessary.
+Also, make sure the correct color is set for the background, so that it matches
+the one in vim.
 
