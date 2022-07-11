@@ -10,6 +10,13 @@ if has("syntax")
   syntax on
 endif
 
+if has("termguicolors")
+  set termguicolors
+  " the following is apparently needed sometimes according to :h termguicolors
+  let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
+  let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
+endif
+
 filetype plugin indent on
 
 set background=dark
@@ -85,9 +92,14 @@ if ! empty(globpath(&rtp, 'autoload/plug.vim'))
   Plug 'neoclide/coc.nvim', {'branch': 'release'}
   " needs fzf and optionally bat for colored previews
   Plug 'junegunn/fzf.vim'
+  Plug 'sainnhe/gruvbox-material'
 
   call plug#end()
 endif
+
+let g:gruvbox_material_background = 'soft'
+let g:gruvbox_material_better_performance = 1
+colorscheme gruvbox-material
 
 " ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 " Conqueror of Completion
