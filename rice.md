@@ -148,6 +148,22 @@ export GIT_PS1_SHOWDIRTYSTATE=enabled
 PS1='\W$(__git_ps1 " (%s)") > '
 ```
 
+### Fzf
+
+Install fzf for convenient fuzzy-finding capabilities using bash:
+
+```bash
+pacman -S fzf
+```
+
+Place the following two lines in `~/.bashrc` to enable keyboard shortcuts and
+some completions, read the docs for more information on these topics:
+
+```bash
+source /usr/share/fzf/key-bindings.bash
+source /usr/share/fzf/completion.bash
+```
+
 ## 4. Visual refinement
 
 The overall theme of the system should match the vim theme "gruvbox-material" by
