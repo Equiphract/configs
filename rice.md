@@ -238,3 +238,20 @@ static const char *dmenucmd[] = {
 };
 ```
 
+### Wallpaper
+
+Install feh, a program that is able to display images as well as set wallpapers,
+then run the following into command:
+
+```bash
+feh --bg-scale /path/to/wallpaper.jpg
+```
+
+This will set the wallpaper for the current session and generate a script in the
+home directory called `.fehbg` containing the same command. This script can be
+sourced in `~/.xprofile` to ensure that it is set everytime X starts up:
+
+```bash
+~/.fehbg
+```
+
