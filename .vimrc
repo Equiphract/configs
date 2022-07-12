@@ -93,6 +93,7 @@ if ! empty(globpath(&rtp, 'autoload/plug.vim'))
   " needs fzf and optionally bat for colored previews
   Plug 'junegunn/fzf.vim'
   Plug 'sainnhe/gruvbox-material'
+  Plug 'sheerun/vim-polyglot'
 
   call plug#end()
 endif
