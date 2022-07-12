@@ -97,7 +97,7 @@ if ! empty(globpath(&rtp, 'autoload/plug.vim'))
   call plug#end()
 endif
 
-let g:gruvbox_material_background = 'soft'
+let g:gruvbox_material_background = 'medium'
 let g:gruvbox_material_better_performance = 1
 colorscheme gruvbox-material
 
