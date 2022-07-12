@@ -198,3 +198,15 @@ but not in the upstream source of st, so remove that keyword where necessary.
 Also, make sure the correct color is set for the background, so that it matches
 the one in vim.
 
+### Dwm visual refinement
+
+Apply an appropriate theme to dwm that goes well with gruvbox-material by
+replacing the colors in `config.def.h` with the following:
+
+```c
+static const char col_gray1[]       = "#32302f";
+static const char col_gray2[]       = "#1d2021";
+static const char col_gray3[]       = "#e2d3ba";
+static const char col_gray4[]       = "#eeeeee";
+static const char col_cyan[]        = "#171717";
+```
