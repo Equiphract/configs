@@ -41,7 +41,7 @@ slstatus &
 
 ### ~/.xserverrc
 
-The ArchWiki recomments that the following snippet is put into `.xserverrc`:
+The ArchWiki recommends that the following snippet is put into `.xserverrc`:
 
 ```bash
 #!/bin/sh
@@ -76,6 +76,8 @@ in `config.def.h`:
 #define MODKEY Mod4Mask
 ```
 
+---
+
 To install flameshot run `pacman -S flameshot`
 
 Create shortcut for slock and flameshot in `config.def.h`:
@@ -92,6 +94,15 @@ static Key keys[] = {
 
   // ...
 };
+```
+
+---
+
+There is a bug with java applications (see: `man dwm`) and one way to fix it in
+most cases is to add the following line into `~/.xinitrc`:
+
+```bash
+export _JAVA_AWT_WM_NONREPARENTING=1
 ```
 
 ### St
