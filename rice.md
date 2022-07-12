@@ -153,10 +153,12 @@ PS1='[\u@\h \W$(__git_ps1 " (%s)")]\$ '
 The overall theme of the system should match the vim theme "gruvbox-material" by
 sainnhe: <https://github.com/sainnhe/gruvbox-material>
 
-Normal background color: #1C1C1C
-Normal foreground color: #DFDFAF
+### Slock visual refinement
 
-### Fonts
+Install the following patch to draw a dwm logo on the lock screen:
+<https://tools.suckless.org/slock/patches/dwmlogo/>
+
+### St visual refinement
 
 Download Fira code as a coding font:
 
@@ -179,15 +181,12 @@ Download the required version and then run:
 git apply patches/st-ligatures-20210824-0.8.4.diff
 ```
 
-### Slock visual refinement
-
-Install the following patch to draw a dwm logo on the lock screen:
-<https://tools.suckless.org/slock/patches/dwmlogo/>
-
-### St visual refinement
+---
 
 Install the following patch so that st can be resized in single pixel steps:
 <https://st.suckless.org/patches/anysize/>
+
+---
 
 Install the following patch to apply the gruvbox-material theme to st:
 <https://st.suckless.org/patches/gruvbox-material/>
@@ -210,3 +209,32 @@ static const char col_gray3[]       = "#e2d3ba";
 static const char col_gray4[]       = "#eeeeee";
 static const char col_cyan[]        = "#171717";
 ```
+
+### Dmenu visual refinement
+
+Careful, the following patches are outdated and all changes need to be applied
+manually.
+
+Install the following patch to center dmenu on the screen:
+<http://tools.suckless.org/dmenu/patches/center/>
+
+Install the following patch to add borders to dmenu:
+<http://tools.suckless.org/dmenu/patches/border/>
+
+In order for dmenu to show results below its prompt in list form, the dmenu call
+in dwm's `config.def.h` needs to be edited as follows:
+
+```c
+static const char *dmenucmd[] = {
+  "dmenu_run",
+  "-m", dmenumon,
+  "-fn", dmenufont,
+  "-nb", col_gray1,
+  "-nf", col_gray3,
+  "-sb", col_cyan,
+  "-sf", col_gray4,
+  "-l", "20", // this line was added
+  NULL
+};
+```
+
