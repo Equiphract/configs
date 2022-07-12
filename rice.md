@@ -284,3 +284,18 @@ To make ls always print colored output, add the following to `~/.bashrc`:
 alias ls='ls --color=auto'
 ```
 
+### Syntax highlighting in less
+
+To enable syntax highlighting in less the source-highlight package is needed:
+
+```bash
+pacman -S source-highlight
+```
+
+Then put the following to lines into `~/.bashrc`:
+
+```bash
+export LESSOPEN="| /usr/bin/src-hilite-lesspipe.sh %s"
+export LESS=' -R '
+```
+
