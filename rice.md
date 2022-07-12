@@ -156,6 +156,7 @@ To enable basic support for a git prompt, put the following into `~/.bashrc`:
 ```bash
 source /usr/share/git/completion/git-prompt.sh
 export GIT_PS1_SHOWDIRTYSTATE=enabled
+export GIT_PS1_SHOWUPSTREAM=enabled
 PS1='\W$(__git_ps1 " (%s)") > '
 ```
 
