@@ -226,6 +226,11 @@ static const char col_gray4[]       = "#eeeeee";
 static const char col_cyan[]        = "#171717";
 ```
 
+---
+
+Install the following patch to add gaps to windows:
+<http://dwm.suckless.org/patches/uselessgap/>
+
 ### Dmenu visual refinement
 
 Careful, the following patches are outdated and all changes need to be applied
