@@ -276,3 +276,11 @@ sourced in `~/.xprofile` to ensure that it is set everytime X starts up:
 ~/.fehbg
 ```
 
+### Colored ls output
+
+To make ls always print colored output, add the following to `~/.bashrc`:
+
+```bash
+alias ls='ls --color=auto'
+```
+
