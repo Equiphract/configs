@@ -1,4 +1,13 @@
 #!/bin/sh
+#
+# ~/.bashrc
+#
+
+# If not running interactively, don't do anything
+[[ $- != *i* ]] && return
+
+export VISUAL=vim
+export EDITOR=$VISUAL
 
 source /usr/share/git/completion/git-prompt.sh
 export GIT_PS1_SHOWDIRTYSTATE=enabled
