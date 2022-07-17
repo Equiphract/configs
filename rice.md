@@ -105,6 +105,33 @@ most cases is to add the following line into `~/.xinitrc`:
 export _JAVA_AWT_WM_NONREPARENTING=1
 ```
 
+---
+
+For microphone, volume and screen brightness control, add the following to
+`config.def.h`:
+
+```c
+static const char *brightnessupcmd[]  = { "brillo", "-q", "-A", "10", NULL };
+static const char *brightnessdowncmd[]  = { "brillo", "-q", "-U", "10", NULL };
+static const char *upvolcmd[] = { "amixer", "set", "Master", "5%+", NULL };
+static const char *downvolcmd[] = { "amixer", "set", "Master", "5%-", NULL };
+static const char *mutevolcmd[] = { "amixer", "set", "Master", "toggle", NULL };
+static const char *mutemiccmd[] = { "amixer", "set", "Capture", "toggle", NULL };
+
+#include <X11/XF86keysym.h>
+
+static Key keys[] = {
+
+// ...
+
+  { 0, XF86XK_MonBrightnessUp,       spawn,         {.v = brightnessupcmd }   },
+  { 0, XF86XK_MonBrightnessDown,     spawn,         {.v = brightnessdowncmd } },
+  { 0, XF86XK_AudioLowerVolume,      spawn,         {.v = downvolcmd }        },
+  { 0, XF86XK_AudioMute,             spawn,         {.v = mutevolcmd }        },
+  { 0, XF86XK_AudioMicMute,          spawn,         {.v = mutemiccmd }        },
+  { 0, XF86XK_AudioRaiseVolume,      spawn,         {.v = upvolcmd   }        },
+```
+
 ### St
 
 To change the default font size it needs to be set in the font matching pattern
