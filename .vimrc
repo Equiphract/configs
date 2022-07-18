@@ -45,6 +45,7 @@ set nojoinspaces
 set listchars=tab:>·,trail:~,extends:>,precedes:<
 set list
 set belloff=all
+set signcolumn=number
 
 " ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 " Key mappings
