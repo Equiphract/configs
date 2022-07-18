@@ -90,27 +90,13 @@ autocmd BufReadPost *
 if ! empty(globpath(&rtp, 'autoload/plug.vim'))
   call plug#begin('~/.vim/plugged')
 
-  Plug 'neoclide/coc.nvim', {'branch': 'release'}
-  " needs fzf and optionally bat for colored previews
-  Plug 'junegunn/fzf.vim'
-  Plug 'sainnhe/gruvbox-material'
-  Plug 'sheerun/vim-polyglot'
+  source ~/repositories/configs/vim-plugins/coc.vim
+  source ~/repositories/configs/vim-plugins/fzf.vim
+  source ~/repositories/configs/vim-plugins/gruvbox_material.vim
+  source ~/repositories/configs/vim-plugins/vim_polyglot.vim
 
   call plug#end()
 endif
 
-let g:gruvbox_material_background = 'medium'
-let g:gruvbox_material_better_performance = 1
-colorscheme gruvbox-material
+colorscheme gruvbox-material " must be called after plug#end
 
-" ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-" Conqueror of Completion
-" ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-let g:coc_global_extensions = ['coc-java', 'coc-markdownlint', 'coc-pyright']
-noremap gd <Plug>(coc-definition)
-
-
-" ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-" FZF
-" ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-noremap <Leader>f :Files<CR>
