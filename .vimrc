@@ -105,7 +105,7 @@ colorscheme gruvbox-material
 " ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 " Conqueror of Completion
 " ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-let g:coc_global_extensions = ['coc-java', 'coc-markdownlint']
+let g:coc_global_extensions = ['coc-java', 'coc-markdownlint', 'coc-pyright']
 noremap gd <Plug>(coc-definition)
 
 
