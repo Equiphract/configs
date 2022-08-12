@@ -94,6 +94,7 @@ if ! empty(globpath(&rtp, 'autoload/plug.vim'))
   source ~/repositories/configs/vim-plugins/fzf.vim
   source ~/repositories/configs/vim-plugins/gruvbox_material.vim
   source ~/repositories/configs/vim-plugins/vim_polyglot.vim
+  source ~/repositories/configs/vim-plugins/commentary.vim
 
   call plug#end()
 endif
