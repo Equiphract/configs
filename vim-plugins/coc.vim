@@ -14,6 +14,8 @@ nmap <silent> gd <Plug>(coc-definition)
 nmap <silent> gy <Plug>(coc-type-definition)
 nmap <silent> gi <Plug>(coc-implementation)
 nmap <silent> gr <Plug>(coc-references)
+nmap <silent> ga <plug>(coc-codeaction-cursor)
+"""
 nnoremap <silent> K :call ShowDocumentation()<CR>
 nmap <leader>rn <Plug>(coc-rename)
 " Map function and class text objects
