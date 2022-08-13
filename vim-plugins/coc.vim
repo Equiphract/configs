@@ -1,6 +1,11 @@
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
-let g:coc_global_extensions = ['coc-java', 'coc-markdownlint', 'coc-pyright']
+let g:coc_global_extensions = [
+    \ 'coc-java',
+    \ 'coc-markdownlint',
+    \ 'coc-pyright'
+\ ]
+
 noremap gd <Plug>(coc-definition)
 
 inoremap <silent><expr> <TAB>
