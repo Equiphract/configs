@@ -115,7 +115,13 @@ static const char *brightnessupcmd[]  = { "brillo", "-q", "-A", "10", NULL };
 static const char *brightnessdowncmd[]  = { "brillo", "-q", "-U", "10", NULL };
 static const char *upvolcmd[] = { "amixer", "set", "Master", "5%+", NULL };
 static const char *downvolcmd[] = { "amixer", "set", "Master", "5%-", NULL };
-static const char *mutevolcmd[] = { "amixer", "set", "Master", "toggle", NULL };
+
+// Sadly amixer is not very intuitive if it comes to muting the speakers, at
+// least on my machine it would mute the Master and Speaker channels when using
+// toggle but then not unmute the Speaker channel, so there would not be any
+// sounds... so I had to resort to PulseAudio.
+static const char *mutevolcmd[] = { "pactl", "set-sink-mute", "@DEFAULT_SINK@", "toggle", NULL };
+
 static const char *mutemiccmd[] = { "amixer", "set", "Capture", "toggle", NULL };
 
 #include <X11/XF86keysym.h>
