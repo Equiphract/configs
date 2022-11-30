@@ -4,16 +4,18 @@ let g:coc_global_extensions = [
     \ 'coc-java',
     \ 'coc-markdownlint',
     \ 'coc-pyright',
-    \ 'coc-texlab'
+    \ 'coc-texlab',
+    \ 'coc-json'
 \ ]
 
 noremap gd <Plug>(coc-definition)
 
 inoremap <silent><expr> <TAB>
-      \ pumvisible() ? "\<C-n>" :
-      \ CheckBackspace() ? "\<TAB>" :
+      \ coc#pum#visible() ? coc#pum#next(1) :
+      \ CheckBackspace() ? "\<Tab>" :
       \ coc#refresh()
-inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
+inoremap <expr><S-TAB> coc#pum#visible() ? coc#pum#prev(1) : "\<C-h>"
+
 nmap <silent> [g <Plug>(coc-diagnostic-prev)
 nmap <silent> ]g <Plug>(coc-diagnostic-next)
 nmap <silent> gd <Plug>(coc-definition)
