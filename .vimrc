@@ -68,6 +68,10 @@ map <F1> :call ToggleSpell()<CR>
 " Run with Python
 map <F2> :w !python<CR>
 
+" Center cursor during half page up / down
+nnoremap <C-d> <C-d>zz
+nnoremap <C-u> <C-u>zz
+
 " ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 " Autocommands
 " ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
