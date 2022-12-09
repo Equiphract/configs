@@ -106,3 +106,7 @@ endif
 
 colorscheme gruvbox-material " must be called after plug#end
 
+" Sets inlay text colors, must be done after colorscheme
+highlight CocErrorVirtualText guifg=red
+highlight CocWarningVirtualText guifg=yellow
+
