@@ -8,7 +8,8 @@ let g:coc_global_extensions = [
     \ 'coc-json',
     \ 'coc-clangd',
     \ 'coc-tsserver',
-    \ 'coc-html'
+    \ 'coc-html',
+    \ 'coc-eslint'
 \ ]
 
 noremap gd <Plug>(coc-definition)
