@@ -5,7 +5,10 @@ let g:coc_global_extensions = [
     \ 'coc-markdownlint',
     \ 'coc-pyright',
     \ 'coc-texlab',
-    \ 'coc-json'
+    \ 'coc-json',
+    \ 'coc-clangd',
+    \ 'coc-tsserver',
+    \ 'coc-html'
 \ ]
 
 noremap gd <Plug>(coc-definition)
