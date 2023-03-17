@@ -31,7 +31,7 @@ set mouse=a
 set number
 set relativenumber
 set expandtab
-set tabstop=2
+set tabstop=4
 set shiftwidth=0
 set softtabstop=-1
 set autoindent
