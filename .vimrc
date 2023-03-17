@@ -32,7 +32,7 @@ set number
 set relativenumber
 set expandtab
 set tabstop=4
-set shiftwidth=0
+set shiftwidth=4 " setting it to 0 did not work correctly under coc.nvim
 set softtabstop=-1
 set autoindent
 set textwidth=80
