@@ -10,7 +10,7 @@ if has("syntax")
   syntax on
 endif
 
-if has("termguicolors")
+if has("termguicolors") && ($TERM == "st-256color" || $TERM == "tmux-256color")
   set termguicolors
   " the following is apparently needed sometimes according to :h termguicolors
   let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
