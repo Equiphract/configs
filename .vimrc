@@ -53,9 +53,6 @@ set signcolumn=number
 
 let mapleader = ' '
 
-" Run with Python
-map <F2> :w !python<CR>
-
 " Center cursor during half page up / down
 nnoremap <C-d> <C-d>zz
 nnoremap <C-u> <C-u>zz
