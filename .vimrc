@@ -53,18 +53,6 @@ set signcolumn=number
 
 let mapleader = ' '
 
-" Spell checking
-function! ToggleSpell()
-  if &spell ==# "nospell"
-    set spell spelllang=de_ch
-  elseif &spell && &spelllang ==# "de_ch"
-    set spelllang=en_gb
-  else
-    set nospell
-  endif
-endfunction
-map <F1> :call ToggleSpell()<CR>
-
 " Run with Python
 map <F2> :w !python<CR>
 
