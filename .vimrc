@@ -1,20 +1,22 @@
-" ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-" General options
-" ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+vim9script
+# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+# General options
+# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 if &compatible
-  set nocompatible " Vi compatibility not needed
+  set nocompatible # Vi compatibility not needed
 endif
 
 if has("syntax")
-  syntax on
+  syntax enable
 endif
 
 if has("termguicolors") && ($TERM == "st-256color" || $TERM == "tmux-256color")
   set termguicolors
-  " the following is apparently needed sometimes according to :h termguicolors
-  let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
-  let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
+  # the following is apparently needed sometimes according to :h
+  # xterm-true-color
+  &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
+  &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
 endif
 
 filetype plugin indent on
@@ -25,6 +27,7 @@ set showcmd
 set ignorecase
 set smartcase
 set incsearch
+set nohlsearch
 set autowrite
 set hidden
 set mouse=a
@@ -32,7 +35,7 @@ set number
 set relativenumber
 set expandtab
 set tabstop=4
-set shiftwidth=4 " setting it to 0 did not work correctly under coc.nvim
+set shiftwidth=0 # uses the tabstop value
 set softtabstop=-1
 set autoindent
 set textwidth=80
@@ -47,50 +50,31 @@ set list
 set belloff=all
 set signcolumn=number
 
-" ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-" Key mappings
-" ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+# Key mappings
+# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-let mapleader = ' '
+g:mapleader = ' '
+noremap <F2> :edit $MYVIMRC<CR>
+noremap <F3> :source $MYVIMRC<CR>
 
-" Center cursor during half page up / down
-nnoremap <C-d> <C-d>zz
-nnoremap <C-u> <C-u>zz
+# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+# Vim-Plug
+# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-" ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-" Autocommands
-" ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-" When editing a file, always jump to the last known cursor position.
-" Don't do it when the position is invalid, when inside an event handler
-" (happens when dropping a file on gvim) and for a commit message (it's
-" likely a different one than last time).
-autocmd BufReadPost *
-  \ if line("'\"") >= 1 && line("'\"") <= line("$") && &ft !~# 'commit'
-  \ |   exe "normal! g`\""
-  \ | endif
-
-" ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-" Vim-Plug
-" ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-" Make sure to reload the vimrc and run the :PlugInstall command after adding
-" a new Plugin. :PlugUpdate can be used to update all installed plugins.
+# Make sure to reload the vimrc and run the :PlugInstall command after adding
+# a new Plugin. :PlugUpdate can be used to update all installed plugins.
 if ! empty(globpath(&rtp, 'autoload/plug.vim'))
-  call plug#begin('~/.vim/plugged')
+    plug#begin('~/.vim/plugged')
 
-  source ~/repositories/configs/vim-plugins/coc.vim
-  source ~/repositories/configs/vim-plugins/fzf.vim
-  source ~/repositories/configs/vim-plugins/gruvbox_material.vim
-  source ~/repositories/configs/vim-plugins/vim_polyglot.vim
-  source ~/repositories/configs/vim-plugins/commentary.vim
+    source ~/repos/configs/vim-plugins/fzf.vim
+    source ~/repos/configs/vim-plugins/commentary.vim
+    source ~/repos/configs/vim-plugins/vim_lsp.vim
+    source ~/repos/configs/vim-plugins/colorscheme.vim
+    Plug 'rhysd/vim-healthcheck'
 
-  call plug#end()
+    plug#end()
 endif
 
-colorscheme gruvbox-material " must be called after plug#end
-
-" Sets inlay text colors, must be done after colorscheme
-highlight CocErrorVirtualText guifg=red
-highlight CocWarningVirtualText guifg=yellow
+colorscheme carbonfox
 

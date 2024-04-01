@@ -1,0 +1,2 @@
+Plug 'EdenEast/nightfox.nvim'
+

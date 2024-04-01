@@ -1,12 +1,15 @@
-" needs fzf and optionally bat for colored previews
+vim9script
+# needs fzf and optionally bat for colored previews
 Plug 'junegunn/fzf.vim'
 
-" fzf file fuzzy search that respects .gitignore
-" If in git directory, show only files that are committed, staged, or unstaged
-" else use regular :Files
-noremap <expr> <Leader>f (len(system('git rev-parse')) ?
-      \ ':Files' :
-      \ ':GFiles --exclude-standard --others --cached')."\<CR>"
+def IsInGitRepo(): bool
+    system('git rev-parse')
+    return v:shell_error == 0
+enddef
+
+noremap <expr> <Leader>f IsInGitRepo()
+    \ ? ":GFiles --exclude-standard --others --cached<CR>"
+    \ : ":Files<CR>"
 
 noremap <Leader>b :Buffers<CR>
 
