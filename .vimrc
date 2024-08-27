@@ -69,12 +69,9 @@ if ! empty(globpath(&rtp, 'autoload/plug.vim'))
 
     source ~/repos/configs/vim-plugins/fzf.vim
     source ~/repos/configs/vim-plugins/commentary.vim
-    source ~/repos/configs/vim-plugins/vim_lsp.vim
     source ~/repos/configs/vim-plugins/colorscheme.vim
-    Plug 'rhysd/vim-healthcheck'
 
     plug#end()
 endif
 
 colorscheme carbonfox
-
