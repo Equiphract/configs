@@ -80,4 +80,5 @@ if ! empty(globpath(&rtp, 'autoload/plug.vim'))
     plug#end()
 endif
 
-colorscheme carbonfox
+colorscheme retrobox
+
