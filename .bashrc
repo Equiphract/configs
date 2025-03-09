@@ -21,3 +21,5 @@ alias ls='ls --color=auto'
 alias poweroff='doas /sbin/poweroff'
 alias reboot='doas /sbin/reboot'
 
+complete -F _root_command doas
+
