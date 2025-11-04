@@ -66,7 +66,7 @@ const myVimPluginsDir = '/' ..
     join(split(resolve(expand('<sfile>:p')), "/")[0 : -2], '/') ..
     '/vim-plugins/'
 const sourceCommand = 'source ' .. myVimPluginsDir .. '%s.vim'
-const myPlugins = ['fzf', 'commentary']
+const myPlugins = ['fzf', 'commentary', 'vim-wayland-clipboard']
 
 # Make sure to reload the vimrc and run the :PlugInstall command after adding
 # a new Plugin. :PlugUpdate can be used to update all installed plugins.
